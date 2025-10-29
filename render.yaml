@@ -1,11 +1,11 @@
 services:
+  # Backend (FastAPI in Docker)
   - type: web
     name: creatorai-backend
-    env: docker
+    runtime: docker            # was: env: docker
     plan: free
-    autoDeploy: true
-    rootDir: .
     dockerfilePath: backend/Dockerfile
+    rootDir: .                 # repo root; Dockerfile path is relative to this
     envVars:
       - key: OPENAI_API_KEY
         sync: false
@@ -21,12 +21,15 @@ services:
         value: 100
       - key: PRO_MONTHLY_GENERATIONS
         value: 5000
-  - type: static
+
+  # Frontend (Static site)
+  - type: web                   # ✅ must be "web"
     name: creatorai-frontend
+    runtime: static             # ✅ mark it as a static site
     plan: free
-    autoDeploy: true
-    buildCommand: ''
-    staticPublishPath: frontend
+    staticPublishPath: frontend # publish the /frontend folder
+    # If Render complains about buildCommand being required, add the next line:
+    buildCommand: ""            # empty build; files are already in /frontend
     envVars:
       - key: API_URL
         value: https://creatorai-backend.onrender.com
