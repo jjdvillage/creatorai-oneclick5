@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CreatorScriptAI App</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+<link rel="manifest" href="manifest.webmanifest">
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js");}</script>
+</head><body>
+<header>
+  <img src="assets/logo.svg" height="40" alt="logo">
+  <h1>CreatorScriptAI App</h1>
+  <p>Idea → Script → Captions → Voiceover → Thumbnail</p>
+</header>
+<main>
+  <section class="card">
+    <h2>Account</h2>
+    <input id="email" placeholder="Email"><br>
+    <input id="password" type="password" placeholder="Password"><br>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <button id="registerBtn">Register</button>
+      <button id="loginBtn">Login</button>
+      <button id="logoutBtn" style="display:none;">Logout</button>
+    </div>
+    <p id="authStatus"></p>
+  </section>
+
+  <section class="card">
+    <h2>Generate Script</h2>
+    <input id="topic" placeholder="Enter a topic"><br>
+    <button id="generateBtn">Generate</button>
+    <pre id="output" style="text-align:left;white-space:pre-wrap;background:#0b0c10;padding:10px;border-radius:8px;overflow:auto;max-height:360px;"></pre>
+  </section>
+</main>
+<footer><p>© <span id="year"></span> CreatorScriptAI</p></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body></html>

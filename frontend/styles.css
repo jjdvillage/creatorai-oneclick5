@@ -1,0 +1,6 @@
+body{font-family:Inter,Arial,sans-serif;background:#0b0c10;color:#eaf0f1;margin:0;text-align:center}
+header{padding:20px}main{padding:20px}
+button{background:#0a84ff;color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer}
+.card{background:#111317;border:1px solid #1f232b;border-radius:12px;padding:20px;margin:20px auto;max-width:640px}
+input{padding:8px;margin:5px;border-radius:6px;border:1px solid #1f232b;width:80%;max-width:320px}
+a{color:#c0c7d1;text-decoration:none}footer{padding:20px;font-size:.9em;color:#c0c7d1}

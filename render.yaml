@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: creatorai-backend
+    env: docker
+    plan: free
+    autoDeploy: true
+    rootDir: .
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PRICE_ID
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        value: https://creatorai-frontend.onrender.com
+      - key: FREE_MONTHLY_GENERATIONS
+        value: 100
+      - key: PRO_MONTHLY_GENERATIONS
+        value: 5000
+  - type: static
+    name: creatorai-frontend
+    plan: free
+    autoDeploy: true
+    buildCommand: ''
+    staticPublishPath: frontend
+    envVars:
+      - key: API_URL
+        value: https://creatorai-backend.onrender.com
